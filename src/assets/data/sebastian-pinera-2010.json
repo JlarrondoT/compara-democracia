@@ -1,0 +1,170 @@
+{
+  "id": "sebastian-pinera-2010",
+  "presidentName": "Sebastián Piñera Echenique",
+  "termNumber": 1,
+  "period": {
+    "startYear": 2010,
+    "endYear": 2014,
+    "startDate": "2010-03-11",
+    "endDate": "2014-03-11",
+    "isCurrentTerm": false
+  },
+  "politicalAffiliation": {
+    "party": "Renovación Nacional",
+    "coalition": "Coalición por el Cambio",
+    "spectrum": "centro-derecha"
+  },
+  "portraitUrl": "assets/images/presidents/sebastian-pinera-1.svg",
+  "context": {
+    "globalShocks": [
+      "Crisis de Deuda Soberana en Europa (2011-2012)",
+      "Término del superciclo de commodities"
+    ],
+    "naturalDisasters": [
+      "Reconstrucción post Terremoto 27F",
+      "Accidente de la mina San José (Los 33)"
+    ],
+    "legislativeComposition": {
+      "senateMajority": "oposicion",
+      "chamberMajority": "dividido"
+    }
+  },
+  "macroEconomy": {
+    "gdpGrowthRate": {
+      "average": 5.3,
+      "unit": "%",
+      "notes": "Fuerte empuje por la reconstrucción del 27F y dinamismo de la inversión.",
+      "sources": [
+        {
+          "name": "Banco Central de Chile"
+        }
+      ]
+    },
+    "inflationRate": {
+      "initial": 1.5,
+      "final": 3.0,
+      "average": 2.8,
+      "accumulated": 12.1,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "unemploymentRate": {
+      "initial": 8.5,
+      "final": 6.1,
+      "unit": "%",
+      "notes": "Creación neta informada de aproximadamente 1 millón de empleos.",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "grossPublicDebtPibRatio": {
+      "initial": 5.8,
+      "final": 12.7,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    },
+    "copperPriceAverageUSD": {
+      "average": 3.65,
+      "unit": "USD",
+      "sources": [
+        {
+          "name": "COCHILCO"
+        }
+      ]
+    }
+  },
+  "social": {
+    "povertyRate": {
+      "initial": 11.5,
+      "final": 7.8,
+      "unit": "%",
+      "notes": "Medición CASEN tradicional.",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia"
+        }
+      ]
+    },
+    "extremePovertyRate": {
+      "initial": 3.7,
+      "final": 2.5,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia"
+        }
+      ]
+    },
+    "giniCoefficient": {
+      "initial": 0.51,
+      "final": 0.49,
+      "unit": "ratio",
+      "sources": [
+        {
+          "name": "Banco Mundial"
+        }
+      ]
+    },
+    "minimumWageRealChange": {
+      "accumulated": 10.2,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    }
+  },
+  "milestones": [
+    {
+      "title": "Extensión del Postnatal a 6 Meses",
+      "year": 2011,
+      "description": "Ampliación del permiso postnatal parental con subsidio con tope legal.",
+      "category": "reforma_legal",
+      "impact": "Aumentó la licencia con cobertura laboral y derecho extensible al padre.",
+      "lawNumber": "Ley N° 20.545",
+      "sources": [
+        {
+          "name": "BCN Ley Chile",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1030936"
+        }
+      ]
+    },
+    {
+      "title": "Eliminación del 7% de Salud a Pensionados",
+      "year": 2011,
+      "description": "Exención de la cotización obligatoria del 7% en salud para los jubilados más vulnerables.",
+      "category": "programa_social",
+      "impact": "Aumento directo en el ingreso líquido de pensionados de los primeros quintiles.",
+      "lawNumber": "Ley N° 20.531",
+      "sources": [
+        {
+          "name": "BCN Ley Chile"
+        }
+      ]
+    },
+    {
+      "title": "Creación del Ministerio de Desarrollo Social",
+      "year": 2011,
+      "description": "Reemplazo de MIDEPLAN para articular la política de superación de pobreza y vulnerabilidad.",
+      "category": "institucionalidad",
+      "impact": "Estableció el Ingreso Ético Familiar y mejor fiscalización de subsidios.",
+      "lawNumber": "Ley N° 20.530",
+      "sources": [
+        {
+          "name": "BCN Ley Chile"
+        }
+      ]
+    }
+  ]
+}

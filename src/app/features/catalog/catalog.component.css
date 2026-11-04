@@ -1,0 +1,290 @@
+.catalog-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page-hero {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+.civic-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy-700);
+  margin-bottom: 0.45rem;
+}
+
+.page-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--navy-900);
+  margin: 0 0 0.6rem 0;
+  letter-spacing: -0.02em;
+}
+
+.page-description {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 74ch;
+}
+
+.compare-banner-card {
+  background-color: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-left: 4px solid var(--navy-800);
+  border-radius: 8px;
+  padding: 1.1rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-width: 250px;
+}
+
+.compare-banner-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+}
+
+.compare-banner-text {
+  margin: 0.2rem 0 0 0;
+  font-size: 0.92rem;
+  color: var(--text-primary);
+}
+
+.toast-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.15rem;
+  background-color: var(--navy-900);
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+.toast-link {
+  color: #93c5fd;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.toolbar-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-pill {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-pill:hover {
+  border-color: var(--navy-700);
+  color: var(--navy-900);
+}
+
+.filter-pill.active {
+  background-color: var(--navy-900);
+  border-color: var(--navy-900);
+  color: #ffffff;
+}
+
+.results-counter {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.president-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  overflow: hidden;
+}
+
+.president-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -6px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+.president-card.is-compared {
+  border-color: var(--navy-700);
+  box-shadow: 0 0 0 1px var(--navy-700);
+}
+
+.card-period-header {
+  padding: 0.85rem 1.25rem;
+  background-color: var(--surface-muted);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.period-years {
+  font-family: 'Inter', monospace;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--navy-900);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-term {
+  background-color: #e2e8f0;
+  color: #334155;
+}
+
+.badge-current {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.card-body {
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+
+.portrait-container {
+  width: 76px;
+  height: 76px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+  background-color: var(--surface-muted);
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.president-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.president-name {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--navy-900);
+  line-height: 1.25;
+}
+
+.president-coalition {
+  margin: 0;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.duration-tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.card-actions {
+  padding: 0.95rem 1.25rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 0.65rem;
+  background-color: #fcfcfd;
+}
+
+.card-actions .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+.btn-outline-navy {
+  background-color: #ffffff;
+  color: var(--navy-900);
+  border: 1px solid #cbd5e1;
+}
+
+.btn-outline-navy:hover {
+  background-color: var(--surface-muted);
+  border-color: var(--navy-800);
+}
+
+.btn-compare-add {
+  background-color: #eff6ff;
+  color: var(--navy-800);
+  border: 1px solid #bfdbfe;
+}
+
+.btn-compare-add:hover {
+  background-color: #dbeafe;
+}
+
+.btn-compare-active {
+  background-color: var(--navy-900);
+  color: #ffffff;
+  border: 1px solid var(--navy-900);
+}
+

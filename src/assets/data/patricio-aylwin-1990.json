@@ -1,0 +1,159 @@
+{
+  "id": "patricio-aylwin-1990",
+  "presidentName": "Patricio Aylwin Azócar",
+  "termNumber": 1,
+  "period": {
+    "startYear": 1990,
+    "endYear": 1994,
+    "startDate": "1990-03-11",
+    "endDate": "1994-03-11",
+    "isCurrentTerm": false
+  },
+  "politicalAffiliation": {
+    "party": "Partido Demócrata Cristiano",
+    "coalition": "Concertación de Partidos por la Democracia",
+    "spectrum": "centro-izquierda"
+  },
+  "portraitUrl": "assets/images/presidents/patricio-aylwin.svg",
+  "context": {
+    "globalShocks": [
+      "Guerra del Golfo (1990-1991)"
+    ],
+    "naturalDisasters": [
+      "Aluvión de Antofagasta (1991)"
+    ],
+    "legislativeComposition": {
+      "senateMajority": "oposicion",
+      "chamberMajority": "oficialismo"
+    }
+  },
+  "macroEconomy": {
+    "gdpGrowthRate": {
+      "average": 7.7,
+      "unit": "%",
+      "notes": "Promedio anual del crecimiento del PIB a precios constantes.",
+      "sources": [
+        {
+          "name": "Banco Central de Chile",
+          "reportTitle": "Cuentas Nacionales Históricas"
+        }
+      ]
+    },
+    "inflationRate": {
+      "initial": 27.3,
+      "final": 12.2,
+      "average": 18.7,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "Instituto Nacional de Estadísticas (INE)"
+        }
+      ]
+    },
+    "unemploymentRate": {
+      "initial": 6.5,
+      "final": 5.2,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "INE",
+          "reportTitle": "Encuesta Nacional de Empleo Histórica"
+        }
+      ]
+    },
+    "grossPublicDebtPibRatio": {
+      "initial": 44.5,
+      "final": 33.1,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "DIPRES",
+          "reportTitle": "Estadísticas de la Deuda Pública"
+        }
+      ]
+    },
+    "copperPriceAverageUSD": {
+      "average": 1.05,
+      "unit": "USD",
+      "sources": [
+        {
+          "name": "COCHILCO"
+        }
+      ]
+    }
+  },
+  "social": {
+    "povertyRate": {
+      "initial": 38.6,
+      "final": 27.5,
+      "unit": "%",
+      "notes": "Metodología histórica CASEN (corte de línea de indigencia y pobreza tradicional).",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia",
+          "reportTitle": "Encuesta CASEN 1990 y 1994"
+        }
+      ]
+    },
+    "extremePovertyRate": {
+      "initial": 13.0,
+      "final": 7.6,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia",
+          "reportTitle": "Encuesta CASEN 1990 y 1994"
+        }
+      ]
+    },
+    "giniCoefficient": {
+      "initial": 0.57,
+      "final": 0.55,
+      "unit": "ratio",
+      "sources": [
+        {
+          "name": "Banco Mundial / CEPAL"
+        }
+      ]
+    },
+    "minimumWageRealChange": {
+      "accumulated": 28.5,
+      "unit": "%",
+      "notes": "Variación porcentual real acumulada en 4 años de mandato.",
+      "sources": [
+        {
+          "name": "Fundación SOL / DIPRES"
+        }
+      ]
+    }
+  },
+  "milestones": [
+    {
+      "title": "Comisión Nacional de Verdad y Reconciliación",
+      "year": 1990,
+      "description": "Creación de la comisión para esclarecer violaciones a DD.HH. cometidas entre 1973 y 1990, culminando en el Informe Rettig.",
+      "category": "derechos_humanos",
+      "impact": "Estableció el reconocimiento estatal formal de las víctimas y las bases de la reparación civil.",
+      "lawNumber": "Decreto Supremo N° 355",
+      "sources": [
+        {
+          "name": "Biblioteca del Congreso Nacional (BCN)",
+          "url": "https://www.bcn.cl/leychile"
+        }
+      ]
+    },
+    {
+      "title": "Reforma Tributaria y creación del FOSIS",
+      "year": 1990,
+      "description": "Acuerdo parlamentario transversal para financiar el gasto social e institucionalizar fondos de superación de pobreza.",
+      "category": "programa_social",
+      "impact": "Aumento del IVA al 18% transitorio y aumento del impuesto de primera categoría para financiar programas focalizados.",
+      "lawNumber": "Ley N° 18.985",
+      "sources": [
+        {
+          "name": "Ministerio de Hacienda / SII"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,380 @@
+<section class="comparator-page">
+  <header class="comparator-header">
+    <div>
+      <span class="civic-eyebrow">ANÁLISIS MULTIDIMENSIONAL SINCRONIZADO</span>
+      <h1 class="page-title">Comparador de Administraciones Presidenciales</h1>
+      <p class="page-description">
+        Selecciona entre <strong>2 y 4 mandatos presidenciales</strong> para contrastar de forma
+        directa sus indicadores macroeconómicos, sociales, contexto legislativo y desempeño fiscal.
+      </p>
+    </div>
+
+    <div class="header-quick-actions">
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="selectAllAvailableUpToFour()"
+      >
+        Comparar 4 Mandatos (1990–2010)
+      </button>
+      @if (presidentService.compareCount() > 0) {
+        <button type="button" class="btn btn-ghost" (click)="clearSelection()">
+          Limpiar selección
+        </button>
+      }
+    </div>
+  </header>
+
+  <!-- SELECTOR MULTICHOICE INTERACTIVO CON SIGNALS -->
+  <section class="selector-panel" aria-labelledby="selector-heading">
+    <div class="selector-top-bar">
+      <h2 id="selector-heading" class="selector-title">
+        Selector de Mandatos ({{ presidentService.compareCount() }} de 4 seleccionados)
+      </h2>
+      <span class="selector-hint">
+        @if (presidentService.compareCount() < 2) {
+          Selecciona al menos {{ 2 - presidentService.compareCount() }} mandato(s) adicional(es) para
+          habilitar la matriz comparativa.
+        } @else {
+          Matriz comparativa activa con {{ presidentService.compareCount() }} administraciones.
+        }
+      </span>
+    </div>
+
+    @if (warningBanner()) {
+      <div class="warning-alert" role="alert">
+        {{ warningBanner() }}
+      </div>
+    }
+
+    <div class="multichoice-grid" role="group" aria-label="Administraciones disponibles">
+      @for (item of catalog(); track item.id) {
+        <button
+          type="button"
+          class="choice-chip"
+          [class.selected]="presidentService.isSelectedForCompare(item.id)"
+          (click)="onTogglePresident(item.id)"
+          [attr.aria-pressed]="presidentService.isSelectedForCompare(item.id)"
+        >
+          <img
+            [src]="item.portraitUrl"
+            [alt]="item.presidentName"
+            class="chip-avatar"
+          />
+          <div class="chip-info">
+            <span class="chip-period">
+              {{ item.startYear }}–{{ item.endYear ?? 'Presente' }}
+            </span>
+            <span class="chip-name">{{ item.presidentName }}</span>
+          </div>
+          <span class="chip-check" aria-hidden="true">
+            @if (presidentService.isSelectedForCompare(item.id)) {
+              &#10003;
+            } @else {
+              +
+            }
+          </span>
+        </button>
+      }
+    </div>
+  </section>
+
+  <!-- ESTADO VACÍO INFORMATIVO CUANDO HAY MENOS DE 2 MANDATOS -->
+  @if (!presidentService.isReadyToCompare()) {
+    <div class="empty-compare-state" role="region" aria-live="polite">
+      <div class="empty-icon" aria-hidden="true">&#9878;</div>
+      <h2 class="empty-state-title">
+        Selecciona al menos 2 administraciones para iniciar el contraste
+      </h2>
+      <p class="empty-state-text">
+        Actualmente tienes <strong>{{ presidentService.compareCount() }}</strong> mandato(s)
+        seleccionado(s). Haz clic en las tarjetas del selector superior o explora el
+        <a routerLink="/presidents">Catálogo Cronológico</a> para agregar administraciones al
+        comparador multidimensional.
+      </p>
+      <div class="empty-state-actions">
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="selectAllAvailableUpToFour()"
+        >
+          Cargar Comparativa Sugerida (Aylwin, Frei, Lagos, Bachelet)
+        </button>
+        <a routerLink="/presidents" class="btn btn-secondary">
+          Explorar Catálogo
+        </a>
+      </div>
+    </div>
+  } @else if (isLoading()) {
+    <div class="state-box" aria-busy="true">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Sincronizando series estadísticas entre administraciones...</p>
+    </div>
+  } @else {
+    <!-- TABLA / VISTA EN COLUMNAS SINCRONIZADAS -->
+    <div class="comparison-table-wrapper">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th scope="col" class="metric-col-header">
+              Dimensión / Indicador Oficial
+            </th>
+            @for (admin of selectedAdministrations(); track admin.id) {
+              <th scope="col" class="admin-col-header">
+                <div class="admin-header-card">
+                  <button
+                    type="button"
+                    class="remove-col-btn"
+                    (click)="onTogglePresident(admin.id)"
+                    [attr.aria-label]="'Quitar a ' + admin.presidentName + ' de la comparación'"
+                    title="Quitar de la tabla"
+                  >
+                    &times;
+                  </button>
+
+                  <div class="admin-header-top">
+                    <img
+                      [src]="admin.portraitUrl"
+                      [alt]="admin.presidentName"
+                      class="admin-header-avatar"
+                    />
+                    <div>
+                      <span class="admin-header-years">
+                        {{ admin.period.startYear }} &ndash; {{ admin.period.endYear ?? 'Presente' }}
+                      </span>
+                      <h3 class="admin-header-name">
+                        <a [routerLink]="['/presidents', admin.id]">
+                          {{ admin.presidentName }}
+                        </a>
+                      </h3>
+                      <span class="admin-header-party">
+                        {{ admin.politicalAffiliation.party }}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </th>
+            }
+          </tr>
+        </thead>
+
+        <tbody>
+          <!-- SECCIÓN 1: MACROECONÓMICA -->
+          <tr class="group-divider-row">
+            <td [attr.colspan]="selectedAdministrations().length + 1">
+              1. Indicadores Macroeconómicos y Fiscales (PIB, Inflación, Deuda Pública, Desempleo, Cobre)
+            </td>
+          </tr>
+
+          @for (row of macroRows(); track row.id) {
+            <tr>
+              <th scope="row" class="metric-row-title">
+                <span class="row-label">{{ row.label }}</span>
+                <span class="row-desc">{{ row.description }}</span>
+              </th>
+
+              @for (admin of selectedAdministrations(); track admin.id) {
+                @let m = row.extractor(admin);
+                <td class="metric-cell">
+                  <div class="cell-content">
+                    @if (m.initial !== undefined && m.final !== undefined) {
+                      <div class="cell-range">
+                        <div class="range-pair">
+                          <span class="range-tag">Inicio:</span>
+                          <strong>{{ formatValue(m.initial, m.unit) }}</strong>
+                        </div>
+                        <span class="range-arrow" aria-hidden="true">&rarr;</span>
+                        <div class="range-pair">
+                          <span class="range-tag">Fin:</span>
+                          <strong class="value-final">{{ formatValue(m.final, m.unit) }}</strong>
+                        </div>
+                      </div>
+
+                      @if (getDeltaInfo(m); as delta) {
+                        <span
+                          class="cell-delta"
+                          [class.delta-positive]="
+                            row.inversePolarity ? delta.numericDelta < 0 : delta.numericDelta > 0
+                          "
+                          [class.delta-negative]="
+                            row.inversePolarity ? delta.numericDelta > 0 : delta.numericDelta < 0
+                          "
+                        >
+                          Variación: {{ delta.label }}
+                        </span>
+                      }
+                    }
+
+                    @if (m.average !== undefined) {
+                      <div class="cell-Highlight">
+                        <span class="highlight-label">Promedio período:</span>
+                        <span class="highlight-number">
+                          {{ formatValue(m.average, m.unit) }}
+                        </span>
+                      </div>
+                    }
+
+                    @if (m.accumulated !== undefined) {
+                      <div class="cell-Highlight">
+                        <span class="highlight-label">Acumulado:</span>
+                        <span class="highlight-number">
+                          +{{ formatValue(m.accumulated, m.unit) }}
+                        </span>
+                      </div>
+                    }
+
+                    <div class="cell-source">
+                      @for (src of m.sources; track src.name) {
+                        <span class="mini-source-tag" [attr.title]="src.reportTitle ?? src.name">
+                          {{ src.name }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                </td>
+              }
+            </tr>
+          }
+
+          <!-- SECCIÓN 2: INDICADORES SOCIALES -->
+          <tr class="group-divider-row">
+            <td [attr.colspan]="selectedAdministrations().length + 1">
+              2. Indicadores Sociales y Distributivos (Pobreza, Indigencia, Salario Mínimo Real, Gini)
+            </td>
+          </tr>
+
+          @for (row of socialRows(); track row.id) {
+            <tr>
+              <th scope="row" class="metric-row-title">
+                <span class="row-label">{{ row.label }}</span>
+                <span class="row-desc">{{ row.description }}</span>
+              </th>
+
+              @for (admin of selectedAdministrations(); track admin.id) {
+                @let m = row.extractor(admin);
+                <td class="metric-cell">
+                  <div class="cell-content">
+                    @if (m.initial !== undefined && m.final !== undefined) {
+                      <div class="cell-range">
+                        <div class="range-pair">
+                          <span class="range-tag">Inicio:</span>
+                          <strong>{{ formatValue(m.initial, m.unit) }}</strong>
+                        </div>
+                        <span class="range-arrow" aria-hidden="true">&rarr;</span>
+                        <div class="range-pair">
+                          <span class="range-tag">Fin:</span>
+                          <strong class="value-final">{{ formatValue(m.final, m.unit) }}</strong>
+                        </div>
+                      </div>
+
+                      @if (getDeltaInfo(m); as delta) {
+                        <span
+                          class="cell-delta"
+                          [class.delta-positive]="
+                            row.inversePolarity ? delta.numericDelta < 0 : delta.numericDelta > 0
+                          "
+                          [class.delta-negative]="
+                            row.inversePolarity ? delta.numericDelta > 0 : delta.numericDelta < 0
+                          "
+                        >
+                          Variación: {{ delta.label }}
+                        </span>
+                      }
+                    }
+
+                    @if (m.accumulated !== undefined) {
+                      <div class="cell-Highlight">
+                        <span class="highlight-label">Variación real acumulada:</span>
+                        <span class="highlight-number">
+                          +{{ formatValue(m.accumulated, m.unit) }}
+                        </span>
+                      </div>
+                    }
+
+                    <div class="cell-source">
+                      @for (src of m.sources; track src.name) {
+                        <span class="mini-source-tag" [attr.title]="src.reportTitle ?? src.name">
+                          {{ src.name }}
+                        </span>
+                      }
+                    </div>
+                  </div>
+                </td>
+              }
+            </tr>
+          }
+
+          <!-- SECCIÓN 3: CONTEXTO EXÓGENO Y LEGISLATIVO -->
+          <tr class="group-divider-row">
+            <td [attr.colspan]="selectedAdministrations().length + 1">
+              3. Contexto Exógeno, Mayorías en el Congreso e Hitos Documentados
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row" class="metric-row-title">
+              <span class="row-label">Mayoría en Congreso Nacional</span>
+              <span class="row-desc">Correlación en Cámara de Diputados y Senado</span>
+            </th>
+            @for (admin of selectedAdministrations(); track admin.id) {
+              <td class="metric-cell">
+                <div class="context-mini-stack">
+                  <div>
+                    <span class="mini-label">Cámara:</span>
+                    <strong>
+                      {{ getMajorityLabel(admin.context.legislativeComposition.chamberMajority) }}
+                    </strong>
+                  </div>
+                  <div>
+                    <span class="mini-label">Senado:</span>
+                    <strong>
+                      {{ getMajorityLabel(admin.context.legislativeComposition.senateMajority) }}
+                    </strong>
+                  </div>
+                </div>
+              </td>
+            }
+          </tr>
+
+          <tr>
+            <th scope="row" class="metric-row-title">
+              <span class="row-label">Shocks Globales y Crisis Exógenas</span>
+              <span class="row-desc">Eventos internacionales durante el mandato</span>
+            </th>
+            @for (admin of selectedAdministrations(); track admin.id) {
+              <td class="metric-cell">
+                <ul class="compact-list">
+                  @for (shock of admin.context.globalShocks; track shock) {
+                    <li>{{ shock }}</li>
+                  }
+                </ul>
+              </td>
+            }
+          </tr>
+
+          <tr>
+            <th scope="row" class="metric-row-title">
+              <span class="row-label">Hitos Estructurales Principales</span>
+              <span class="row-desc">Leyes y reformas emblemáticas del período</span>
+            </th>
+            @for (admin of selectedAdministrations(); track admin.id) {
+              <td class="metric-cell">
+                <ul class="compact-list">
+                  @for (ms of admin.milestones; track ms.title) {
+                    <li>
+                      <strong>{{ ms.year }}:</strong> {{ ms.title }}
+                      @if (ms.lawNumber) {
+                        <span class="inline-law">({{ ms.lawNumber }})</span>
+                      }
+                    </li>
+                  }
+                </ul>
+              </td>
+            }
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  }
+</section>
+

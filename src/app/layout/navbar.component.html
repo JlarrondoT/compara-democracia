@@ -1,0 +1,72 @@
+<header class="civic-header">
+  <div class="civic-top-stripe" aria-hidden="true">
+    <span class="stripe-blue"></span>
+    <span class="stripe-red"></span>
+  </div>
+
+  <div class="navbar-container">
+    <a routerLink="/presidents" class="brand" aria-label="Ir al inicio de Compara Democracia">
+      <img
+        src="assets/images/CDLOGO.jpg"
+        alt="Logo Compara Democracia"
+        class="brand-logo"
+      />
+      <div class="brand-text">
+        <span class="brand-title">Compara Democracia</span>
+        <span class="brand-subtitle">Observatorio Presidencial de Chile (1990–Presente)</span>
+      </div>
+    </a>
+
+    <div class="search-wrapper" role="search">
+      <label for="global-president-search" class="sr-only">
+        Buscar presidente, año o coalición
+      </label>
+      <span class="search-icon" aria-hidden="true">&#128269;</span>
+      <input
+        id="global-president-search"
+        type="search"
+        class="search-input"
+        placeholder="Filtrar por presidente, año o coalición..."
+        [ngModel]="presidentService.searchQuery()"
+        (ngModelChange)="onSearchInput($event)"
+      />
+      @if (presidentService.searchQuery()) {
+        <button
+          type="button"
+          class="clear-search-btn"
+          (click)="clearSearch()"
+          aria-label="Limpiar búsqueda"
+        >
+          &times;
+        </button>
+      }
+    </div>
+
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a
+        routerLink="/presidents"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: false }"
+        class="nav-item"
+      >
+        <span>Catálogo Cronológico</span>
+      </a>
+
+      <a
+        routerLink="/compare"
+        routerLinkActive="active"
+        class="nav-item nav-item-compare"
+      >
+        <span>Comparador</span>
+        <span
+          class="compare-badge"
+          [class.badge-ready]="presidentService.isReadyToCompare()"
+          aria-label="Mandatos seleccionados para comparar"
+        >
+          {{ presidentService.compareCount() }}/4
+        </span>
+      </a>
+    </nav>
+  </div>
+</header>
+

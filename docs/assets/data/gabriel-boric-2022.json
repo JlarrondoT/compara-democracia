@@ -1,0 +1,173 @@
+{
+  "id": "gabriel-boric-2022",
+  "presidentName": "Gabriel Boric Font",
+  "termNumber": 1,
+  "period": {
+    "startYear": 2022,
+    "endYear": 2026,
+    "startDate": "2022-03-11",
+    "endDate": "2026-03-11",
+    "isCurrentTerm": false
+  },
+  "politicalAffiliation": {
+    "party": "Frente Amplio",
+    "coalition": "Apruebo Dignidad / Socialismo Democrático",
+    "spectrum": "izquierda"
+  },
+  "portraitUrl": "assets/images/presidents/gabriel-boric.svg",
+  "context": {
+    "globalShocks": [
+      "Guerra Rusia-Ucrania y presiones inflacionarias globales de energía/alimentos",
+      "Alza mundial de tasas de interés"
+    ],
+    "naturalDisasters": [
+      "Megaincendios en la Región de Valparaíso (2024)",
+      "Inundaciones en la zona centro-sur (2023)"
+    ],
+    "legislativeComposition": {
+      "senateMajority": "dividido",
+      "chamberMajority": "dividido"
+    }
+  },
+  "macroEconomy": {
+    "gdpGrowthRate": {
+      "average": 1.7,
+      "unit": "%",
+      "notes": "Ajuste macroeconómico y desaceleración tras el sobrecalentamiento del consumo en 2021.",
+      "sources": [
+        {
+          "name": "Banco Central de Chile",
+          "reportTitle": "Cuentas Nacionales 2022-2025"
+        }
+      ]
+    },
+    "inflationRate": {
+      "initial": 9.4,
+      "final": 3.8,
+      "average": 6.2,
+      "accumulated": 22.1,
+      "unit": "%",
+      "notes": "Pico de 14.1% anual a mediados de 2022 seguido por política monetaria restrictiva del Banco Central.",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "unemploymentRate": {
+      "initial": 7.4,
+      "final": 8.3,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "grossPublicDebtPibRatio": {
+      "initial": 36.3,
+      "final": 41.2,
+      "unit": "%",
+      "notes": "Contención del déficit fiscal durante 2022 con superávit estructural temporal.",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    },
+    "copperPriceAverageUSD": {
+      "average": 4.05,
+      "unit": "USD",
+      "sources": [
+        {
+          "name": "COCHILCO"
+        }
+      ]
+    }
+  },
+  "social": {
+    "povertyRate": {
+      "initial": 10.8,
+      "final": 6.5,
+      "unit": "%",
+      "notes": "Mínimo histórico registrado en CASEN 2022/2024 gracias al impacto de subsidios y la PGU consolidada.",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia",
+          "reportTitle": "Resultados CASEN"
+        }
+      ]
+    },
+    "extremePovertyRate": {
+      "initial": 4.3,
+      "final": 2.0,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia"
+        }
+      ]
+    },
+    "giniCoefficient": {
+      "initial": 0.49,
+      "final": 0.45,
+      "unit": "ratio",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia / CEPAL"
+        }
+      ]
+    },
+    "minimumWageRealChange": {
+      "accumulated": 18.2,
+      "unit": "%",
+      "notes": "Alcanzó el hito nominal de $500.000 CLP en julio de 2024 con subsidio estatal a MiPymes.",
+      "sources": [
+        {
+          "name": "Ministerio del Trabajo y Previsión Social"
+        }
+      ]
+    }
+  },
+  "milestones": [
+    {
+      "title": "Ley de Reducción de Jornada Laboral a 40 Horas",
+      "year": 2023,
+      "description": "Reducción gradual de la jornada ordinaria de 45 a 40 horas semanales.",
+      "category": "reforma_legal",
+      "impact": "Implementación escalonada sin disminución remuneracional y flexibilidad pactada.",
+      "lawNumber": "Ley N° 21.561",
+      "sources": [
+        {
+          "name": "BCN Ley Chile",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1191060"
+        }
+      ]
+    },
+    {
+      "title": "Nuevo Royalty Minero",
+      "year": 2023,
+      "description": "Nuevo esquema impositivo a la gran minería del cobre con fondos de distribución regional y comunal.",
+      "category": "reforma_legal",
+      "impact": "Recaudación estimada de 0.45% del PIB redistribuida hacia gobiernos locales y desarrollo productivo.",
+      "lawNumber": "Ley N° 21.591",
+      "sources": [
+        {
+          "name": "Ministerio de Hacienda"
+        }
+      ]
+    },
+    {
+      "title": "Copago Cero en Fonasa",
+      "year": 2022,
+      "description": "Gratuidad total en la red pública de salud para usuarios de los tramos C y D de Fonasa.",
+      "category": "programa_social",
+      "impact": "Exención de aranceles hospitalarios para más de 5 millones de personas.",
+      "sources": [
+        {
+          "name": "FONASA / Ministerio de Salud"
+        }
+      ]
+    }
+  ]
+}

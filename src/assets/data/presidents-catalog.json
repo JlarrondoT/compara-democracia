@@ -1,0 +1,92 @@
+[
+  {
+    "id": "patricio-aylwin-1990",
+    "presidentName": "Patricio Aylwin Azócar",
+    "termNumber": 1,
+    "startYear": 1990,
+    "endYear": 1994,
+    "coalition": "Concertación",
+    "portraitUrl": "assets/images/presidents/patricio-aylwin.svg",
+    "isCurrentTerm": false
+  },
+  {
+    "id": "eduardo-frei-1994",
+    "presidentName": "Eduardo Frei Ruiz-Tagle",
+    "termNumber": 1,
+    "startYear": 1994,
+    "endYear": 2000,
+    "coalition": "Concertación",
+    "portraitUrl": "assets/images/presidents/eduardo-frei.svg",
+    "isCurrentTerm": false
+  },
+  {
+    "id": "ricardo-lagos-2000",
+    "presidentName": "Ricardo Lagos Escobar",
+    "termNumber": 1,
+    "startYear": 2000,
+    "endYear": 2006,
+    "coalition": "Concertación",
+    "portraitUrl": "assets/images/presidents/ricardo-lagos.svg",
+    "isCurrentTerm": false
+  },
+  {
+    "id": "michelle-bachelet-2006",
+    "presidentName": "Michelle Bachelet Jeria",
+    "termNumber": 1,
+    "startYear": 2006,
+    "endYear": 2010,
+    "coalition": "Concertación",
+    "portraitUrl": "assets/images/presidents/michelle-bachelet-1.svg",
+    "isCurrentTerm": false
+  },
+  {
+    "id": "sebastian-pinera-2010",
+    "presidentName": "Sebastián Piñera Echenique",
+    "termNumber": 1,
+    "startYear": 2010,
+    "endYear": 2014,
+    "coalition": "Coalición por el Cambio",
+    "portraitUrl": "assets/images/presidents/sebastian-pinera-1.svg",
+    "isCurrentTerm": false
+  },
+  {
+    "id": "michelle-bachelet-2014",
+    "presidentName": "Michelle Bachelet Jeria",
+    "termNumber": 2,
+    "startYear": 2014,
+    "endYear": 2018,
+    "coalition": "Nueva Mayoría",
+    "portraitUrl": "assets/images/presidents/michelle-bachelet-2.svg",
+    "isCurrentTerm": false
+  },
+  {
+    "id": "sebastian-pinera-2018",
+    "presidentName": "Sebastián Piñera Echenique",
+    "termNumber": 2,
+    "startYear": 2018,
+    "endYear": 2022,
+    "coalition": "Chile Vamos",
+    "portraitUrl": "assets/images/presidents/sebastian-pinera-2.svg",
+    "isCurrentTerm": false
+  },
+  {
+    "id": "gabriel-boric-2022",
+    "presidentName": "Gabriel Boric Font",
+    "termNumber": 1,
+    "startYear": 2022,
+    "endYear": 2026,
+    "coalition": "Frente Amplio / Apruebo Dignidad",
+    "portraitUrl": "assets/images/presidents/gabriel-boric.svg",
+    "isCurrentTerm": false
+  },
+  {
+    "id": "jose-antonio-kast-2026",
+    "presidentName": "José Antonio Kast Rist",
+    "termNumber": 1,
+    "startYear": 2026,
+    "endYear": null,
+    "coalition": "Cambio por Chile",
+    "portraitUrl": "assets/images/presidents/jose-antonio-kast.svg",
+    "isCurrentTerm": true
+  }
+]

@@ -1,0 +1,171 @@
+{
+  "id": "sebastian-pinera-2018",
+  "presidentName": "Sebastián Piñera Echenique",
+  "termNumber": 2,
+  "period": {
+    "startYear": 2018,
+    "endYear": 2022,
+    "startDate": "2018-03-11",
+    "endDate": "2022-03-11",
+    "isCurrentTerm": false
+  },
+  "politicalAffiliation": {
+    "party": "Evolución Política / RN / UDI",
+    "coalition": "Chile Vamos",
+    "spectrum": "centro-derecha"
+  },
+  "portraitUrl": "assets/images/presidents/sebastian-pinera-2.svg",
+  "context": {
+    "globalShocks": [
+      "Pandemia Global de COVID-19",
+      "Ruptura de cadenas logísticas globales e inflación mundial"
+    ],
+    "naturalDisasters": [
+      "Crisis climática y megasequía de la zona central"
+    ],
+    "legislativeComposition": {
+      "senateMajority": "oposicion",
+      "chamberMajority": "oposicion"
+    }
+  },
+  "macroEconomy": {
+    "gdpGrowthRate": {
+      "average": 2.6,
+      "unit": "%",
+      "notes": "Gran volatilidad: caída de -6.1% en 2020 (pandemia) y rebote récord de +11.7% en 2021 (retiros previsionales e IFE).",
+      "sources": [
+        {
+          "name": "Banco Central de Chile"
+        }
+      ]
+    },
+    "inflationRate": {
+      "initial": 2.3,
+      "final": 7.2,
+      "average": 3.7,
+      "accumulated": 16.4,
+      "unit": "%",
+      "notes": "Fuerte aceleración inflacionaria en el último año debido a excesos de liquidez.",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "unemploymentRate": {
+      "initial": 6.7,
+      "final": 7.3,
+      "unit": "%",
+      "notes": "Llegó al 13.1% durante las cuarentenas de 2020 antes de recuperarse.",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "grossPublicDebtPibRatio": {
+      "initial": 23.6,
+      "final": 36.3,
+      "unit": "%",
+      "notes": "Incremento por el despliegue del gasto fiscal de emergencia (IFE Universal y vacunas).",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    },
+    "copperPriceAverageUSD": {
+      "average": 3.25,
+      "unit": "USD",
+      "sources": [
+        {
+          "name": "COCHILCO"
+        }
+      ]
+    }
+  },
+  "social": {
+    "povertyRate": {
+      "initial": 8.6,
+      "final": 10.8,
+      "unit": "%",
+      "notes": "Aumento transitorio medido en CASEN 2020 por efecto pandemia, luego mitigado por transferencias.",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia",
+          "reportTitle": "CASEN en Pandemia 2020"
+        }
+      ]
+    },
+    "extremePovertyRate": {
+      "initial": 2.3,
+      "final": 4.3,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia"
+        }
+      ]
+    },
+    "giniCoefficient": {
+      "initial": 0.47,
+      "final": 0.49,
+      "unit": "ratio",
+      "sources": [
+        {
+          "name": "Banco Mundial"
+        }
+      ]
+    },
+    "minimumWageRealChange": {
+      "accumulated": 5.1,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    }
+  },
+  "milestones": [
+    {
+      "title": "Pensión Garantizada Universal (PGU)",
+      "year": 2022,
+      "description": "Reemplazo del Pilar Solidario por una pensión universal garantizada estatal para el 90% de los mayores de 65 años.",
+      "category": "programa_social",
+      "impact": "Elevó las pensiones base de vejez independientes del ahorro individual.",
+      "lawNumber": "Ley N° 21.419",
+      "sources": [
+        {
+          "name": "BCN Ley Chile",
+          "url": "https://www.bcn.cl/leychile/navegar?idNorma=1171887"
+        }
+      ]
+    },
+    {
+      "title": "Gestión Sanitaria y Vacunación Masiva COVID-19",
+      "year": 2021,
+      "description": "Negociación anticipada de vacunas y despliegue logístico nacional de inoculación.",
+      "category": "infraestructura",
+      "impact": "Chile figuró entre los países con ritmo de inmunización per cápita más rápido del mundo.",
+      "sources": [
+        {
+          "name": "Ministerio de Salud (MINSAL) / OCDE"
+        }
+      ]
+    },
+    {
+      "title": "Ley de Matrimonio Igualitario",
+      "year": 2021,
+      "description": "Legalización del matrimonio entre parejas del mismo sexo con derechos filiativos plenos.",
+      "category": "derechos_humanos",
+      "impact": "Hito civil tras años de tramitación parlamentaria.",
+      "lawNumber": "Ley N° 21.400",
+      "sources": [
+        {
+          "name": "BCN Ley Chile"
+        }
+      ]
+    }
+  ]
+}

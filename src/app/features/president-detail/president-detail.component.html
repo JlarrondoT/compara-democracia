@@ -1,0 +1,476 @@
+<div class="detail-page">
+  <nav class="breadcrumb-nav" aria-label="Ruta de navegación">
+    <a routerLink="/presidents" class="back-link">&larr; Volver al Catálogo Cronológico</a>
+    <a routerLink="/compare" class="compare-shortcut-link">
+      Ir al Comparador ({{ presidentService.compareCount() }}/4) &rarr;
+    </a>
+  </nav>
+
+  @if (isLoading()) {
+    <div class="state-box" aria-busy="true">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Cargando expediente presidencial y series estadísticas...</p>
+    </div>
+  } @else if (errorMessage()) {
+    <div class="state-box state-error" role="alert">
+      <h2>Expediente no disponible</h2>
+      <p>{{ errorMessage() }}</p>
+      <a routerLink="/presidents" class="btn btn-primary">Volver al Catálogo</a>
+    </div>
+  } @else {
+    @if (administration(); as admin) {
+    <!-- 1. ENCABEZADO DEL MANDATO -->
+    <header class="dossier-header">
+      <div class="dossier-main-info">
+        <div class="dossier-portrait-wrap">
+          <img
+            [src]="admin.portraitUrl"
+            [alt]="'Retrato oficial de ' + admin.presidentName"
+            class="dossier-portrait"
+          />
+        </div>
+
+        <div class="dossier-identity">
+          <div class="dossier-badges">
+            <span class="badge-period">
+              Mandato {{ admin.period.startYear }} &ndash; {{ admin.period.endYear ?? 'Presente' }}
+            </span>
+            <span class="badge-spectrum">
+              Espectro: {{ admin.politicalAffiliation.spectrum }}
+            </span>
+            <span class="badge-term">{{ admin.termNumber }}° Periodo Presidencial</span>
+          </div>
+
+          <h1 class="dossier-title">{{ admin.presidentName }}</h1>
+
+          <dl class="affiliation-grid">
+            <div class="affiliation-item">
+              <dt>Partido Político</dt>
+              <dd>{{ admin.politicalAffiliation.party }}</dd>
+            </div>
+            <div class="affiliation-item">
+              <dt>Coalición de Gobierno</dt>
+              <dd>{{ admin.politicalAffiliation.coalition }}</dd>
+            </div>
+            <div class="affiliation-item">
+              <dt>Fechas Exactas de Mandato</dt>
+              <dd>{{ admin.period.startDate }} al {{ admin.period.endDate ?? 'En ejercicio' }}</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="dossier-header-actions">
+        <button
+          type="button"
+          class="btn"
+          [class.btn-primary]="!presidentService.isSelectedForCompare(admin.id)"
+          [class.btn-selected]="presidentService.isSelectedForCompare(admin.id)"
+          (click)="toggleCompareCurrent()"
+        >
+          @if (presidentService.isSelectedForCompare(admin.id)) {
+            <span>&#10003; Seleccionado en el Comparador</span>
+          } @else {
+            <span>+ Agregar al Comparador Multidimensional</span>
+          }
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. CONTEXTO EXÓGENO Y COMPOSICIÓN DEL CONGRESO -->
+    <section class="section-block" aria-labelledby="heading-context">
+      <div class="section-header">
+        <h2 id="heading-context" class="section-title">
+          Contexto Exógeno y Gobernabilidad Legislativa
+        </h2>
+        <p class="section-subtitle">
+          Factores externos, catástrofes naturales y correlación de fuerzas en el Congreso Nacional
+          que condicionaron el ejercicio del mandato.
+        </p>
+      </div>
+
+      <div class="context-grid">
+        <article class="context-card">
+          <h3 class="context-card-title">Shocks Internacionales y Crisis Globales</h3>
+          @if (admin.context.globalShocks.length > 0) {
+            <ul class="context-list">
+              @for (shock of admin.context.globalShocks; track shock) {
+                <li>{{ shock }}</li>
+              }
+            </ul>
+          } @else {
+            <p class="context-empty">Sin shocks externos severos registrados.</p>
+          }
+        </article>
+
+        <article class="context-card">
+          <h3 class="context-card-title">Desastres Naturales y Emergencias</h3>
+          @if (admin.context.naturalDisasters.length > 0) {
+            <ul class="context-list">
+              @for (disaster of admin.context.naturalDisasters; track disaster) {
+                <li>{{ disaster }}</li>
+              }
+            </ul>
+          } @else {
+            <p class="context-empty">Sin catástrofes mayores registradas en el período.</p>
+          }
+        </article>
+
+        <article class="context-card">
+          <h3 class="context-card-title">Composición del Congreso Nacional</h3>
+          <div class="congress-rows">
+            <div class="congress-row">
+              <span class="congress-chamber">Cámara de Diputadas y Diputados</span>
+              <span
+                class="congress-badge"
+                [attr.data-majority]="admin.context.legislativeComposition.chamberMajority"
+              >
+                {{ getMajorityLabel(admin.context.legislativeComposition.chamberMajority) }}
+              </span>
+            </div>
+            <div class="congress-row">
+              <span class="congress-chamber">Senado de la República</span>
+              <span
+                class="congress-badge"
+                [attr.data-majority]="admin.context.legislativeComposition.senateMajority"
+              >
+                {{ getMajorityLabel(admin.context.legislativeComposition.senateMajority) }}
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. BLOQUE DE MÉTRICAS MACROECONÓMICAS -->
+    <section class="section-block" aria-labelledby="heading-macro">
+      <div class="section-header">
+        <h2 id="heading-macro" class="section-title">Desempeño Macroeconómico y Fiscal</h2>
+        <p class="section-subtitle">
+          Indicadores estandarizados de crecimiento, estabilidad de precios, empleo, deuda pública y
+          cobre. Cada métrica incluye su fuente oficial documentada.
+        </p>
+      </div>
+
+      <div class="metrics-grid">
+        @for (card of macroCards(); track card.key) {
+          <article class="metric-card">
+            <header class="metric-card-header">
+              <div>
+                <h3 class="metric-title">{{ card.label }}</h3>
+                <p class="metric-subtitle">{{ card.subtitle }}</p>
+              </div>
+              <span class="unit-pill">{{ card.metric.unit }}</span>
+            </header>
+
+            <div class="metric-figures">
+              @if (card.metric.initial !== undefined && card.metric.final !== undefined) {
+                <div class="figure-box">
+                  <span class="figure-label">Valor Inicial</span>
+                  <span class="figure-value">
+                    {{ formatUnit(card.metric.initial, card.metric.unit) }}
+                  </span>
+                </div>
+
+                <div class="figure-arrow" aria-hidden="true">&rarr;</div>
+
+                <div class="figure-box">
+                  <span class="figure-label">Valor Final</span>
+                  <span class="figure-value figure-highlight">
+                    {{ formatUnit(card.metric.final, card.metric.unit) }}
+                  </span>
+                </div>
+
+                @if (calculateDelta(card.metric); as delta) {
+                  <div
+                    class="delta-badge"
+                    [class.delta-good]="
+                      card.inversePolarity ? delta.deltaValue < 0 : delta.deltaValue > 0
+                    "
+                    [class.delta-bad]="
+                      card.inversePolarity ? delta.deltaValue > 0 : delta.deltaValue < 0
+                    "
+                  >
+                    {{ delta.text }}
+                  </div>
+                }
+              }
+
+              @if (card.metric.average !== undefined) {
+                <div class="figure-box figure-box-primary">
+                  <span class="figure-label">Promedio del Período</span>
+                  <span class="figure-value figure-large">
+                    {{ formatUnit(card.metric.average, card.metric.unit) }}
+                  </span>
+                </div>
+              }
+
+              @if (card.metric.accumulated !== undefined) {
+                <div class="figure-box figure-box-primary">
+                  <span class="figure-label">Variación Acumulada</span>
+                  <span class="figure-value figure-large">
+                    +{{ formatUnit(card.metric.accumulated, card.metric.unit) }}
+                  </span>
+                </div>
+              }
+            </div>
+
+            @if (card.metric.notes) {
+              <p class="metric-notes">
+                <strong>Nota metodológica:</strong> {{ card.metric.notes }}
+              </p>
+            }
+
+            <footer class="metric-sources">
+              <span class="sources-label">Fuente oficial:</span>
+              <div class="sources-badges">
+                @for (src of card.metric.sources; track src.name) {
+                  <span
+                    class="source-badge"
+                    [attr.title]="src.reportTitle ? src.name + ' — ' + src.reportTitle : src.name"
+                  >
+                    &#128218; {{ src.name }}
+                    @if (src.reportTitle) {
+                      <span class="source-report">({{ src.reportTitle }})</span>
+                    }
+                  </span>
+                }
+              </div>
+            </footer>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- 4. BLOQUE DE INDICADORES SOCIALES -->
+    <section class="section-block" aria-labelledby="heading-social">
+      <div class="section-header">
+        <h2 id="heading-social" class="section-title">Indicadores Sociales y Distributivos</h2>
+        <p class="section-subtitle">
+          Evolución de la pobreza, indigencia, desigualdad (Gini) y poder adquisitivo del salario
+          mínimo real durante la administración.
+        </p>
+      </div>
+
+      <div class="metrics-grid">
+        @for (card of socialCards(); track card.key) {
+          <article class="metric-card">
+            <header class="metric-card-header">
+              <div>
+                <h3 class="metric-title">{{ card.label }}</h3>
+                <p class="metric-subtitle">{{ card.subtitle }}</p>
+              </div>
+              <span class="unit-pill">{{ card.metric.unit }}</span>
+            </header>
+
+            <div class="metric-figures">
+              @if (card.metric.initial !== undefined && card.metric.final !== undefined) {
+                <div class="figure-box">
+                  <span class="figure-label">Al Asumir</span>
+                  <span class="figure-value">
+                    {{ formatUnit(card.metric.initial, card.metric.unit) }}
+                  </span>
+                </div>
+
+                <div class="figure-arrow" aria-hidden="true">&rarr;</div>
+
+                <div class="figure-box">
+                  <span class="figure-label">Al Entregar</span>
+                  <span class="figure-value figure-highlight">
+                    {{ formatUnit(card.metric.final, card.metric.unit) }}
+                  </span>
+                </div>
+
+                @if (calculateDelta(card.metric); as delta) {
+                  <div
+                    class="delta-badge"
+                    [class.delta-good]="
+                      card.inversePolarity ? delta.deltaValue < 0 : delta.deltaValue > 0
+                    "
+                    [class.delta-bad]="
+                      card.inversePolarity ? delta.deltaValue > 0 : delta.deltaValue < 0
+                    "
+                  >
+                    {{ delta.text }}
+                  </div>
+                }
+              }
+
+              @if (card.metric.accumulated !== undefined) {
+                <div class="figure-box figure-box-primary">
+                  <span class="figure-label">Acumulado en el Mandato</span>
+                  <span class="figure-value figure-large">
+                    +{{ formatUnit(card.metric.accumulated, card.metric.unit) }}
+                  </span>
+                </div>
+              }
+            </div>
+
+            @if (card.metric.notes) {
+              <p class="metric-notes">
+                <strong>Nota metodológica:</strong> {{ card.metric.notes }}
+              </p>
+            }
+
+            <footer class="metric-sources">
+              <span class="sources-label">Fuente oficial:</span>
+              <div class="sources-badges">
+                @for (src of card.metric.sources; track src.name) {
+                  <span
+                    class="source-badge"
+                    [attr.title]="src.reportTitle ? src.name + ' — ' + src.reportTitle : src.name"
+                  >
+                    &#128218; {{ src.name }}
+                    @if (src.reportTitle) {
+                      <span class="source-report">({{ src.reportTitle }})</span>
+                    }
+                  </span>
+                }
+              </div>
+            </footer>
+          </article>
+        }
+      </div>
+    </section>
+
+    <!-- 5. HITOS LEGISLATIVOS Y ESTRUCTURALES CLASIFICADOS POR CATEGORÍA -->
+    <section class="section-block" aria-labelledby="heading-milestones">
+      <div class="section-header-row">
+        <div>
+          <h2 id="heading-milestones" class="section-title">
+            Hitos Legislativos, Institucionales y Estructurales
+          </h2>
+          <p class="section-subtitle">
+            Reformas legales, políticas públicas e infraestructura verificable aprobada o ejecutada
+            en el período.
+          </p>
+        </div>
+
+        <div class="category-filters" role="group" aria-label="Filtrar hitos por categoría">
+          <button
+            type="button"
+            class="cat-btn"
+            [class.active]="activeMilestoneCategory() === 'all'"
+            (click)="setMilestoneCategory('all')"
+          >
+            Todos ({{ admin.milestones.length }})
+          </button>
+          <button
+            type="button"
+            class="cat-btn"
+            [class.active]="activeMilestoneCategory() === 'reforma_legal'"
+            (click)="setMilestoneCategory('reforma_legal')"
+          >
+            Reforma Legal
+          </button>
+          <button
+            type="button"
+            class="cat-btn"
+            [class.active]="activeMilestoneCategory() === 'programa_social'"
+            (click)="setMilestoneCategory('programa_social')"
+          >
+            Programa Social
+          </button>
+          <button
+            type="button"
+            class="cat-btn"
+            [class.active]="activeMilestoneCategory() === 'institucionalidad'"
+            (click)="setMilestoneCategory('institucionalidad')"
+          >
+            Institucionalidad
+          </button>
+          <button
+            type="button"
+            class="cat-btn"
+            [class.active]="activeMilestoneCategory() === 'infraestructura'"
+            (click)="setMilestoneCategory('infraestructura')"
+          >
+            Infraestructura
+          </button>
+          <button
+            type="button"
+            class="cat-btn"
+            [class.active]="activeMilestoneCategory() === 'derechos_humanos'"
+            (click)="setMilestoneCategory('derechos_humanos')"
+          >
+            DD.HH.
+          </button>
+        </div>
+      </div>
+
+      @if (filteredMilestones().length === 0) {
+        <div class="empty-milestones">
+          <p>No hay hitos registrados en esta categoría específica para este mandato.</p>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="setMilestoneCategory('all')"
+          >
+            Mostrar todas las categorías
+          </button>
+        </div>
+      } @else {
+        <div class="milestones-list">
+          @for (item of filteredMilestones(); track item.title) {
+            <article class="milestone-card">
+              <div class="milestone-year-col">
+                <span class="milestone-year">{{ item.year }}</span>
+              </div>
+
+              <div class="milestone-content-col">
+                <div class="milestone-top-meta">
+                  @switch (item.category) {
+                    @case ('reforma_legal') {
+                      <span class="cat-badge cat-legal">{{ getCategoryLabel(item.category) }}</span>
+                    }
+                    @case ('institucionalidad') {
+                      <span class="cat-badge cat-inst">{{ getCategoryLabel(item.category) }}</span>
+                    }
+                    @case ('programa_social') {
+                      <span class="cat-badge cat-social">{{ getCategoryLabel(item.category) }}</span>
+                    }
+                    @case ('infraestructura') {
+                      <span class="cat-badge cat-infra">{{ getCategoryLabel(item.category) }}</span>
+                    }
+                    @case ('derechos_humanos') {
+                      <span class="cat-badge cat-ddhh">{{ getCategoryLabel(item.category) }}</span>
+                    }
+                  }
+
+                  @if (item.lawNumber) {
+                    <span class="law-badge">{{ item.lawNumber }}</span>
+                  }
+                </div>
+
+                <h3 class="milestone-title">{{ item.title }}</h3>
+                <p class="milestone-description">{{ item.description }}</p>
+
+                <div class="milestone-impact-box">
+                  <strong>Impacto documentado:</strong> {{ item.impact }}
+                </div>
+
+                <div class="milestone-sources">
+                  @for (src of item.sources; track src.name) {
+                    @if (src.url) {
+                      <a
+                        [href]="src.url"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="source-link"
+                      >
+                        Fuente: {{ src.name }} &#8599;
+                      </a>
+                    } @else {
+                      <span class="source-text">Fuente: {{ src.name }}</span>
+                    }
+                  }
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      }
+    </section>
+    }
+  }
+</div>

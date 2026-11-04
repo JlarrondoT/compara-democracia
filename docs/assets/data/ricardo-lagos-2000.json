@@ -1,0 +1,134 @@
+{
+  "id": "ricardo-lagos-2000",
+  "presidentName": "Ricardo Lagos Escobar",
+  "termNumber": 1,
+  "period": {
+    "startYear": 2000,
+    "endYear": 2006,
+    "startDate": "2000-03-11",
+    "endDate": "2006-03-11",
+    "isCurrentTerm": false
+  },
+  "politicalAffiliation": {
+    "party": "Partido por la Democracia / Partido Socialista",
+    "coalition": "Concertación de Partidos por la Democracia",
+    "spectrum": "centro-izquierda"
+  },
+  "portraitUrl": "assets/images/presidents/ricardo-lagos.svg",
+  "context": {
+    "globalShocks": [
+      "Estallido Burbuja Punto Com y desaceleración EE.UU. (2000-2001)",
+      "Atentados del 11S e incertidumbre geopolítica global (2001)",
+      "Crisis económica argentina y corte de suministro de gas (2001-2004)"
+    ],
+    "naturalDisasters": [
+      "Temporales del centro-sur de Chile (2002)",
+      "Terremoto de Tarapacá (2005)"
+    ],
+    "legislativeComposition": {
+      "senateMajority": "dividido",
+      "chamberMajority": "oficialismo"
+    }
+  },
+  "macroEconomy": {
+    "gdpGrowthRate": {
+      "average": 4.3,
+      "unit": "%",
+      "notes": "Recuperación progresiva post-Crisis Asiática, acelerando a ~6% anual en el bienio 2004-2005.",
+      "sources": [{ "name": "Banco Central de Chile", "reportTitle": "Cuentas Nacionales 2000-2006" }]
+    },
+    "inflationRate": {
+      "initial": 2.3,
+      "final": 3.6,
+      "average": 2.9,
+      "unit": "%",
+      "notes": "Estabilidad de precios anclada en la meta de 3.0% del Banco Central bajo esquema de tipo de cambio flotante.",
+      "sources": [{ "name": "Instituto Nacional de Estadísticas (INE)" }]
+    },
+    "unemploymentRate": {
+      "initial": 9.8,
+      "final": 7.9,
+      "unit": "%",
+      "sources": [{ "name": "INE", "reportTitle": "Encuesta Nacional de Empleo" }]
+    },
+    "grossPublicDebtPibRatio": {
+      "initial": 13.0,
+      "final": 7.0,
+      "unit": "%",
+      "notes": "Introducción de la regla de Balance Estructural con superávit de 1% del PIB.",
+      "sources": [{ "name": "DIPRES", "reportTitle": "Informe de Finanzas Públicas" }]
+    },
+    "copperPriceAverageUSD": {
+      "average": 1.04,
+      "unit": "USD",
+      "notes": "Inicio del superciclo de materias primas en los últimos dos años del mandato (alcanzando 1.67 USD/lb en 2005).",
+      "sources": [{ "name": "COCHILCO" }]
+    }
+  },
+  "social": {
+    "povertyRate": {
+      "initial": 20.2,
+      "final": 13.7,
+      "unit": "%",
+      "notes": "Medición tradicional CASEN 2000 vs CASEN 2006.",
+      "sources": [{ "name": "Ministerio de Desarrollo Social y Familia", "reportTitle": "Encuesta CASEN 2000 y 2006" }]
+    },
+    "extremePovertyRate": {
+      "initial": 5.6,
+      "final": 3.2,
+      "unit": "%",
+      "sources": [{ "name": "Ministerio de Desarrollo Social y Familia", "reportTitle": "Encuesta CASEN 2000 y 2006" }]
+    },
+    "giniCoefficient": {
+      "initial": 0.56,
+      "final": 0.52,
+      "unit": "ratio",
+      "sources": [{ "name": "Banco Mundial / CASEN" }]
+    },
+    "minimumWageRealChange": {
+      "accumulated": 18.2,
+      "unit": "%",
+      "notes": "Variación real acumulada del ingreso mínimo mensual entre marzo de 2000 y marzo de 2006.",
+      "sources": [{ "name": "DIPRES / INE" }]
+    }
+  },
+  "milestones": [
+    {
+      "title": "Reforma Constitucional de 2005",
+      "year": 2005,
+      "description": "Eliminación de los senadores designados y vitalicios, reducción del mandato presidencial a 4 años sin reelección inmediata y fin de la inamovilidad de los comandantes en jefe de las FF.AA.",
+      "category": "reforma_legal",
+      "impact": "Remoción de los principales enclaves autoritarios institucionales de la Constitución de 1980.",
+      "lawNumber": "Ley N° 20.050",
+      "sources": [{ "name": "Biblioteca del Congreso Nacional (BCN)", "url": "https://www.bcn.cl/leychile" }]
+    },
+    {
+      "title": "Plan AUGE / Garantías Explícitas en Salud (GES)",
+      "year": 2004,
+      "description": "Reforma estructural de salud que garantiza acceso, oportunidad, protección financiera y calidad para un conjunto priorizado de patologías.",
+      "category": "programa_social",
+      "impact": "Cobertura universal exigible tanto en FONASA como en ISAPREs, comenzando con 25 problemas de salud en 2005.",
+      "lawNumber": "Ley N° 19.966",
+      "sources": [{ "name": "Ministerio de Salud (MINSAL)", "url": "https://www.bcn.cl/leychile" }]
+    },
+    {
+      "title": "Comisión Nacional sobre Prisión Política y Tortura (Informe Valech)",
+      "year": 2003,
+      "description": "Comisión encargada de determinar las personas que sufrieron privación de libertad y torturas por razones políticas entre 1973 y 1990.",
+      "category": "derechos_humanos",
+      "impact": "Reconocimiento oficial de más de 28.000 víctimas en su primera etapa y establecimiento de pensiones y beneficios de reparación.",
+      "lawNumber": "Decreto Supremo N° 1.040 / Ley N° 19.992",
+      "sources": [{ "name": "INDH / BCN" }]
+    },
+    {
+      "title": "Seguro de Cesantía y Sistema Chile Solidario",
+      "year": 2001,
+      "description": "Creación del seguro obligatorio de desempleo con cuentas individuales y fondo solidario, junto a la red de protección para familias en extrema pobreza.",
+      "category": "programa_social",
+      "impact": "Institucionalización del pilar de protección ante el desempleo y acompañamiento psicosocial a más de 225.000 hogares vulnerables.",
+      "lawNumber": "Ley N° 19.728 / Ley N° 19.949",
+      "sources": [{ "name": "Ministerio del Trabajo / MIDEPLAN" }]
+    }
+  ]
+}
+

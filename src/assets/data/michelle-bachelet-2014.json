@@ -1,0 +1,171 @@
+{
+  "id": "michelle-bachelet-2014",
+  "presidentName": "Michelle Bachelet Jeria",
+  "termNumber": 2,
+  "period": {
+    "startYear": 2014,
+    "endYear": 2018,
+    "startDate": "2014-03-11",
+    "endDate": "2018-03-11",
+    "isCurrentTerm": false
+  },
+  "politicalAffiliation": {
+    "party": "Partido Socialista de Chile",
+    "coalition": "Nueva Mayoría",
+    "spectrum": "centro-izquierda"
+  },
+  "portraitUrl": "assets/images/presidents/michelle-bachelet-2.svg",
+  "context": {
+    "globalShocks": [
+      "Caída abrupta del precio internacional del cobre (fin del superciclo)"
+    ],
+    "naturalDisasters": [
+      "Terremoto de Iquique (2014)",
+      "Incendio masivo de Valparaíso (2014)",
+      "Megaincendios forestales (2017)"
+    ],
+    "legislativeComposition": {
+      "senateMajority": "oficialismo",
+      "chamberMajority": "oficialismo"
+    }
+  },
+  "macroEconomy": {
+    "gdpGrowthRate": {
+      "average": 1.9,
+      "unit": "%",
+      "notes": "Periodo de menor dinamismo de inversión y desaceleración del ciclo de materias primas.",
+      "sources": [
+        {
+          "name": "Banco Central de Chile"
+        }
+      ]
+    },
+    "inflationRate": {
+      "initial": 3.0,
+      "final": 2.3,
+      "average": 3.6,
+      "accumulated": 15.3,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "unemploymentRate": {
+      "initial": 6.1,
+      "final": 6.7,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "grossPublicDebtPibRatio": {
+      "initial": 12.7,
+      "final": 23.6,
+      "unit": "%",
+      "notes": "Duplicación del ratio de deuda para amortiguar la caída de ingresos del cobre.",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    },
+    "copperPriceAverageUSD": {
+      "average": 2.5,
+      "unit": "USD",
+      "sources": [
+        {
+          "name": "COCHILCO"
+        }
+      ]
+    }
+  },
+  "social": {
+    "povertyRate": {
+      "initial": 14.4,
+      "final": 8.6,
+      "unit": "%",
+      "notes": "Nueva metodología de Pobreza por Ingresos CASEN (serie actualizada 2013-2017).",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia",
+          "reportTitle": "CASEN 2017"
+        }
+      ]
+    },
+    "extremePovertyRate": {
+      "initial": 3.5,
+      "final": 2.3,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia"
+        }
+      ]
+    },
+    "giniCoefficient": {
+      "initial": 0.49,
+      "final": 0.47,
+      "unit": "ratio",
+      "sources": [
+        {
+          "name": "Banco Mundial"
+        }
+      ]
+    },
+    "minimumWageRealChange": {
+      "accumulated": 11.5,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    }
+  },
+  "milestones": [
+    {
+      "title": "Ley de Inclusión y Gratuidad Universitaria",
+      "year": 2015,
+      "description": "Fin al copago, al lucro y a la selección en colegios subvencionados, e instauración de la gratuidad universitaria al 60% más vulnerable.",
+      "category": "reforma_legal",
+      "impact": "Acceso gratuito a educación superior a más de 300.000 estudiantes y desmunicipalización escolar paulatina.",
+      "lawNumber": "Ley N° 20.845 y Ley N° 21.091",
+      "sources": [
+        {
+          "name": "MINEDUC",
+          "url": "https://www.gratuidad.cl"
+        }
+      ]
+    },
+    {
+      "title": "Fin al Sistema Binominal",
+      "year": 2015,
+      "description": "Reemplazo del sistema electoral binominal por un sistema proporcional inclusivo (D'Hondt) con cuotas de género.",
+      "category": "institucionalidad",
+      "impact": "Mayor fragmentación y representatividad parlamentaria desde las elecciones parlamentarias de 2017.",
+      "lawNumber": "Ley N° 20.840",
+      "sources": [
+        {
+          "name": "BCN Ley Chile"
+        }
+      ]
+    },
+    {
+      "title": "Despenalización del Aborto en Tres Causales",
+      "year": 2017,
+      "description": "Regulación de la interrupción voluntaria del embarazo en causales de riesgo vital, inviabilidad fetal o violación.",
+      "category": "derechos_humanos",
+      "impact": "Modificación al Código Sanitario tras décadas de prohibición absoluta.",
+      "lawNumber": "Ley N° 21.030",
+      "sources": [
+        {
+          "name": "BCN Ley Chile"
+        }
+      ]
+    }
+  ]
+}

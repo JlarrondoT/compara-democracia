@@ -1,0 +1,146 @@
+{
+  "id": "jose-antonio-kast-2026",
+  "presidentName": "José Antonio Kast Rist",
+  "termNumber": 1,
+  "period": {
+    "startYear": 2026,
+    "endYear": null,
+    "startDate": "2026-03-11",
+    "endDate": null,
+    "isCurrentTerm": true
+  },
+  "politicalAffiliation": {
+    "party": "Partido Republicano de Chile",
+    "coalition": "Cambio por Chile",
+    "spectrum": "derecha"
+  },
+  "portraitUrl": "assets/images/presidents/jose-antonio-kast.svg",
+  "context": {
+    "globalShocks": [
+      "Reconfiguración del comercio exterior y tensiones geopolíticas internacionales"
+    ],
+    "naturalDisasters": [],
+    "legislativeComposition": {
+      "senateMajority": "dividido",
+      "chamberMajority": "dividido"
+    }
+  },
+  "macroEconomy": {
+    "gdpGrowthRate": {
+      "average": 2.1,
+      "unit": "%",
+      "notes": "Datos en curso. Proyecciones IPOM Banco Central para el año en ejercicio.",
+      "sources": [
+        {
+          "name": "Banco Central de Chile",
+          "reportTitle": "Informe de Política Monetaria (IPoM)"
+        }
+      ]
+    },
+    "inflationRate": {
+      "initial": 3.8,
+      "average": 3.5,
+      "unit": "%",
+      "notes": "Tasa interanual en torno al rango meta.",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "unemploymentRate": {
+      "initial": 8.3,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "INE"
+        }
+      ]
+    },
+    "grossPublicDebtPibRatio": {
+      "initial": 41.2,
+      "unit": "%",
+      "notes": "Nivel de deuda bruta consolidado al inicio de la administración.",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    },
+    "copperPriceAverageUSD": {
+      "average": 4.2,
+      "unit": "USD",
+      "sources": [
+        {
+          "name": "COCHILCO"
+        }
+      ]
+    }
+  },
+  "social": {
+    "povertyRate": {
+      "initial": 6.5,
+      "unit": "%",
+      "notes": "Línea base según última encuesta CASEN disponible.",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia"
+        }
+      ]
+    },
+    "extremePovertyRate": {
+      "initial": 2.0,
+      "unit": "%",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia"
+        }
+      ]
+    },
+    "giniCoefficient": {
+      "initial": 0.45,
+      "unit": "ratio",
+      "sources": [
+        {
+          "name": "Ministerio de Desarrollo Social y Familia"
+        }
+      ]
+    },
+    "minimumWageRealChange": {
+      "accumulated": 0.0,
+      "unit": "%",
+      "notes": "Periodo recién iniciado.",
+      "sources": [
+        {
+          "name": "DIPRES"
+        }
+      ]
+    }
+  },
+  "milestones": [
+    {
+      "title": "Plan Frontera Segura y Control Migratorio",
+      "year": 2026,
+      "description": "Instauración de nuevas directrices de resguardo fronterizo en la Macrozona Norte con apoyo de fuerzas militares y tecnificación perimetral.",
+      "category": "institucionalidad",
+      "impact": "Reforzamiento de puntos de control no habilitados y agilización de reconducciones.",
+      "sources": [
+        {
+          "name": "Ministerio del Interior y Seguridad Pública"
+        }
+      ]
+    },
+    {
+      "title": "Agenda de Simplificación de Permisos de Inversión",
+      "year": 2026,
+      "description": "Medidas de agilización administrativa y reducción de permisología ambiental y sectorial para proyectos mineros y energéticos.",
+      "category": "reforma_legal",
+      "impact": "Destrabe de carpetas de inversión y reducción de plazos de tramitación del Sistema de Evaluación de Impacto Ambiental.",
+      "sources": [
+        {
+          "name": "Ministerio de Economía, Fomento y Turismo"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "id": "eduardo-frei-1994",
+  "presidentName": "Eduardo Frei Ruiz-Tagle",
+  "termNumber": 1,
+  "period": {
+    "startYear": 1994,
+    "endYear": 2000,
+    "startDate": "1994-03-11",
+    "endDate": "2000-03-11",
+    "isCurrentTerm": false
+  },
+  "politicalAffiliation": {
+    "party": "Partido Demócrata Cristiano",
+    "coalition": "Concertación de Partidos por la Democracia",
+    "spectrum": "centro-izquierda"
+  },
+  "portraitUrl": "assets/images/presidents/eduardo-frei.svg",
+  "context": {
+    "globalShocks": [
+      "Crisis Financiera Asiática (1997-1999)",
+      "Efecto Tequila en México (1994-1995)"
+    ],
+    "naturalDisasters": [
+      "Terremoto de Antofagasta (1995)",
+      "Terremoto de Punitaqui (1997)",
+      "Megasequía y crisis hidroeléctrica (1998-1999)"
+    ],
+    "legislativeComposition": {
+      "senateMajority": "oposicion",
+      "chamberMajority": "oficialismo"
+    }
+  },
+  "macroEconomy": {
+    "gdpGrowthRate": {
+      "average": 5.5,
+      "unit": "%",
+      "notes": "Crecimiento elevado entre 1994 y 1997 (~7.5%), moderado por la recesión de 1999 (-0.4%) tras la Crisis Asiática.",
+      "sources": [{ "name": "Banco Central de Chile", "reportTitle": "Cuentas Nacionales Históricas 1994-2000" }]
+    },
+    "inflationRate": {
+      "initial": 12.2,
+      "final": 2.3,
+      "average": 6.1,
+      "unit": "%",
+      "notes": "Consolidación de metas de inflación del Banco Central autónomo, convergiendo a un dígito.",
+      "sources": [{ "name": "Instituto Nacional de Estadísticas (INE)" }]
+    },
+    "unemploymentRate": {
+      "initial": 5.2,
+      "final": 9.8,
+      "unit": "%",
+      "notes": "Alza en el bienio 1998-1999 producto del shock externo asiático y ajuste monetario.",
+      "sources": [{ "name": "INE", "reportTitle": "Encuesta Nacional de Empleo Histórica" }]
+    },
+    "grossPublicDebtPibRatio": {
+      "initial": 33.1,
+      "final": 13.0,
+      "unit": "%",
+      "notes": "Fuerte desendeudamiento fiscal sostenido por superávits efectivos en los primeros cuatro años.",
+      "sources": [{ "name": "DIPRES", "reportTitle": "Estadísticas de la Deuda Pública del Gobierno Central" }]
+    },
+    "copperPriceAverageUSD": {
+      "average": 0.96,
+      "unit": "USD",
+      "notes": "Caída severa en 1998-1999 llegando a mínimos cercanos a 0.71 USD/lb.",
+      "sources": [{ "name": "COCHILCO", "reportTitle": "Anuario Estadístico del Cobre" }]
+    }
+  },
+  "social": {
+    "povertyRate": {
+      "initial": 27.5,
+      "final": 20.2,
+      "unit": "%",
+      "notes": "Metodología histórica CASEN (mediciones 1994 y 2000).",
+      "sources": [{ "name": "Ministerio de Desarrollo Social y Familia", "reportTitle": "Encuesta CASEN 1994 y 2000" }]
+    },
+    "extremePovertyRate": {
+      "initial": 7.6,
+      "final": 5.6,
+      "unit": "%",
+      "sources": [{ "name": "Ministerio de Desarrollo Social y Familia", "reportTitle": "Encuesta CASEN 1994 y 2000" }]
+    },
+    "giniCoefficient": {
+      "initial": 0.55,
+      "final": 0.56,
+      "unit": "ratio",
+      "sources": [{ "name": "Banco Mundial / CEPAL" }]
+    },
+    "minimumWageRealChange": {
+      "accumulated": 36.4,
+      "unit": "%",
+      "notes": "Variación porcentual real acumulada durante el sexenio 1994-2000.",
+      "sources": [{ "name": "DIPRES / OIT" }]
+    }
+  },
+  "milestones": [
+    {
+      "title": "Reforma Procesal Penal y creación del Ministerio Público",
+      "year": 1997,
+      "description": "Reforma constitucional y legal que reemplazó el sistema inquisitivo escrito por un sistema acusatorio oral, público y transparente.",
+      "category": "reforma_legal",
+      "impact": "Separación de las funciones de investigar (Fiscalía), defender (Defensoría Penal Pública) y juzgar (Jueces de Garantía y Tribunales Orales).",
+      "lawNumber": "Ley N° 19.519 / Ley N° 19.640",
+      "sources": [{ "name": "Biblioteca del Congreso Nacional (BCN)", "url": "https://www.bcn.cl/leychile" }]
+    },
+    {
+      "title": "Reforma Educacional y Jornada Escolar Completa (JEC)",
+      "year": 1997,
+      "description": "Ampliación de las horas pedagógicas semanales e inversión masiva en infraestructura escolar en todo el territorio nacional.",
+      "category": "programa_social",
+      "impact": "Incorporación progresiva de miles de establecimientos subvencionados y municipales al régimen de jornada completa.",
+      "lawNumber": "Ley N° 19.532",
+      "sources": [{ "name": "Ministerio de Educación (MINEDUC)", "url": "https://www.bcn.cl/leychile" }]
+    },
+    {
+      "title": "Sistema de Concesiones de Obras Públicas e Infraestructura Vial",
+      "year": 1996,
+      "description": "Impulso al modelo de asociación público-privada para modernizar la Ruta 5 Panamericana, aeropuertos y puertos.",
+      "category": "infraestructura",
+      "impact": "Construcción de más de 2.000 km de autopistas de doble calzada con estándar internacional y modernización del Aeropuerto Arturo Merino Benítez.",
+      "lawNumber": "DFL MOP N° 164 / Ley N° 19.460",
+      "sources": [{ "name": "Ministerio de Obras Públicas (MOP)" }]
+    },
+    {
+      "title": "Inserción Internacional y Tratados de Libre Comercio (Canadá, México, MERCOSUR)",
+      "year": 1996,
+      "description": "Estrategia de regionalismo abierto mediante acuerdos comerciales bilaterales, ingreso a APEC (1994) y asociación con MERCOSUR.",
+      "category": "institucionalidad",
+      "impact": "Apertura arancelaria recíproca e institucionalización de capítulos de inversión, servicios y normas laborales/ambientales.",
+      "lawNumber": "Decreto Supremo RR.EE. N° 1.020",
+      "sources": [{ "name": "SUBREI / Ministerio de Relaciones Exteriores" }]
+    }
+  ]
+}
+

@@ -1,0 +1,153 @@
+<section class="catalog-page">
+  <header class="page-hero">
+    <div class="hero-content">
+      <span class="civic-eyebrow">SERIE HISTÓRICA INSTITUCIONAL · CHILE DESDE 1990</span>
+      <h1 class="page-title">Catálogo Cronológico de Administraciones Presidenciales</h1>
+      <p class="page-description">
+        Explora los períodos presidenciales desde el retorno a la democracia con indicadores
+        macroeconómicos, sociales, contexto legislativo e hitos estructurales documentados con
+        fuentes oficiales (Banco Central, INE, DIPRES, CASEN y Biblioteca del Congreso Nacional).
+      </p>
+    </div>
+
+    <div class="compare-banner-card">
+      <div class="compare-banner-info">
+        <span class="compare-banner-label">Comparador Multidimensional</span>
+        <p class="compare-banner-text">
+          Seleccionados: <strong>{{ presidentService.compareCount() }} de 4</strong> mandatos
+        </p>
+      </div>
+      <div class="compare-banner-actions">
+        <a routerLink="/compare" class="btn btn-primary">
+          Ir al Comparador &rarr;
+        </a>
+      </div>
+    </div>
+  </header>
+
+  @if (feedbackToast()) {
+    <div class="toast-alert" role="status" aria-live="polite">
+      <span>{{ feedbackToast() }}</span>
+      <a routerLink="/compare" class="toast-link">Ver comparativa</a>
+    </div>
+  }
+
+  <div class="toolbar-bar">
+    <div class="filter-pills" role="group" aria-label="Filtrar por coalición política">
+      <button
+        type="button"
+        class="filter-pill"
+        [class.active]="selectedCoalition() === 'all'"
+        (click)="setCoalitionFilter('all')"
+      >
+        Todas las coaliciones ({{ catalog().length }})
+      </button>
+      @for (coalition of availableCoalitions(); track coalition) {
+        <button
+          type="button"
+          class="filter-pill"
+          [class.active]="selectedCoalition() === coalition"
+          (click)="setCoalitionFilter(coalition)"
+        >
+          {{ coalition }}
+        </button>
+      }
+    </div>
+
+    <div class="results-counter">
+      Mostrando <strong>{{ filteredCatalog().length }}</strong> de {{ catalog().length }} mandatos
+    </div>
+  </div>
+
+  @if (isLoading()) {
+    <div class="state-box" aria-busy="true">
+      <div class="spinner" aria-hidden="true"></div>
+      <p>Cargando registro histórico de administraciones presidenciales...</p>
+    </div>
+  } @else if (errorMessage()) {
+    <div class="state-box state-error" role="alert">
+      <p>{{ errorMessage() }}</p>
+      <button type="button" class="btn btn-secondary" (click)="loadCatalog()">
+        Reintentar carga
+      </button>
+    </div>
+  } @else if (filteredCatalog().length === 0) {
+    <div class="state-box">
+      <h2 class="empty-title">Sin coincidencias para el filtro actual</h2>
+      <p class="empty-subtitle">
+        No se encontraron administraciones que coincidan con "{{ presidentService.searchQuery() }}".
+      </p>
+      <button type="button" class="btn btn-secondary" (click)="resetFilters()">
+        Restablecer filtros
+      </button>
+    </div>
+  } @else {
+    <div class="timeline-grid">
+      @for (president of filteredCatalog(); track president.id; let idx = $index) {
+        <article
+          class="president-card"
+          [class.is-compared]="presidentService.isSelectedForCompare(president.id)"
+        >
+          <div class="card-period-header">
+            <span class="period-years">
+              {{ president.startYear }} &ndash; {{ president.endYear ?? 'Presente' }}
+            </span>
+            <div class="period-badges">
+              @if (president.isCurrentTerm) {
+                <span class="badge badge-current">En Ejercicio</span>
+              } @else {
+                <span class="badge badge-term">{{ president.termNumber }}° Mandato</span>
+              }
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="portrait-container">
+              <img
+                [src]="president.portraitUrl"
+                [alt]="'Retrato oficial de ' + president.presidentName"
+                class="portrait-img"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="president-meta">
+              <h2 class="president-name">{{ president.presidentName }}</h2>
+              <p class="president-coalition">{{ president.coalition }}</p>
+              <span class="duration-tag">
+                Duración:
+                {{
+                  president.endYear
+                    ? president.endYear - president.startYear + ' años'
+                    : 'En curso'
+                }}
+              </span>
+            </div>
+          </div>
+
+          <footer class="card-actions">
+            <a [routerLink]="['/presidents', president.id]" class="btn btn-outline-navy">
+              Ver Ficha Completa
+            </a>
+
+            <button
+              type="button"
+              class="btn"
+              [class.btn-compare-active]="presidentService.isSelectedForCompare(president.id)"
+              [class.btn-compare-add]="!presidentService.isSelectedForCompare(president.id)"
+              (click)="onToggleCompare(president)"
+              [attr.aria-pressed]="presidentService.isSelectedForCompare(president.id)"
+            >
+              @if (presidentService.isSelectedForCompare(president.id)) {
+                <span>&#10003; En Comparador</span>
+              } @else {
+                <span>+ Comparar</span>
+              }
+            </button>
+          </footer>
+        </article>
+      }
+    </div>
+  }
+</section>
+
